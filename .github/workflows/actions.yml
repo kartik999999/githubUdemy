@@ -2,6 +2,7 @@ name: Actions Workflows
 on: push
 env:
   WF_ENV: ${{ secrets.ENV_SECRET }}
+  WK_ENV: Everything up to date
 
 jobs:
   log-env:
@@ -9,5 +10,7 @@ jobs:
     steps:
       - name: echo env
         run: echo "${WF_ENV}"
+      - name: echo env II
+        run: echo "${WK_ENV}"
 
 
