@@ -1,0 +1,13 @@
+name: Actions Workflows
+on: push
+env:
+  WF_ENV: Available to push all jobs
+
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo env
+        run: echo "${WF_ENV}"
+      
+
