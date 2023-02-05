@@ -5,6 +5,28 @@ env:
   WK_ENV: Everything up to date
 
 jobs:
+
+  random-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create random-file
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "kartikey.srivastava999@gmail.com"
+          git config --global user.user "my-bot"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -a
+          echo $RANDOM >> random.txt
+          ls -a
+          git add .
+          git commit -m "Commit"
+          git push
   log-env:
     runs-on: ubuntu-latest
     steps:
@@ -12,5 +34,6 @@ jobs:
         run: echo "${WF_ENV}"
       - name: echo env II
         run: echo "${WK_ENV}"
+
 
 
