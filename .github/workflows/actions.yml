@@ -16,9 +16,9 @@ jobs:
           git init
           git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
           git config --global user.email "kartikey.srivastava999@gmail.com"
-          git config --global user.user "my-bot"
+          git config --global user.name "my-bot"
           git fetch
-          git checkout -b development
+          git checkout master
           git branch --set-upstream-to=origin/master
           git pull
           ls -a
